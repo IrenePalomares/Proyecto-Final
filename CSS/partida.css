@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200&family=Montserrat:wght@100&family=Roboto:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Montserrat Alternates';
+    background-image: url("../IMG/fondo1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    overflow-x: hidden;
+}
+h1{
+    font-weight: bold;
+}
+h2{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: justify;
+}
+h3{
+    font-size: 15px;
+    font-weight: bold;
+    text-align: justify;
+}
+.categoria{
+    width: 100%;
+    height: 100%;
+}
+button{
+    font-weight: bold;
+}
+button.btn.fnegro:hover{
+    background-color: #294012;
+    color: #F2F2F2;
+    font-weight: bold;
+}
+.col-12.p-0.bordes{
+    border-left: 1px black;
+    border-bottom: 1px black;
+}
+
