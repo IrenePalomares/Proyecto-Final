@@ -197,3 +197,8 @@ h5{
 .movil{
     width: 90%;
 }
+@media screen and (max-width:991px) {
+    h5{
+        font-size: 10px;
+    }
+}
