@@ -197,9 +197,17 @@ h5{
 .movil{
     width: 90%;
 }
+.btninicio{
+    width: 70%;
+    height: 70%;
+}
 @media screen and (max-width:991px) {
     .info{
         font-size: 12px;
         padding-left: 5%;
+    }
+    .btninicio{
+        width: 100%;
+        height: 100%;
     }
 }
