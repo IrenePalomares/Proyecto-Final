@@ -5,8 +5,7 @@
 }
 body{
     font-family: 'Montserrat Alternates';
-    background-color: #C1C9D0;
-    overflow-x: hidden;
+    /* overflow-x: hidden;*/
 }
 #inicio,#iniciars,#registrar,#ranking,#contacto{
     font-weight: bold;
