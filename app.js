@@ -7,9 +7,9 @@ const port = process.env.PORT || 3000;
 
 // app.set('views', __dirname + '/views')
 
-app.use(express.static(__dirname + '/HTML'));
-app.use(express.static(__dirname + '/CSS'));
-app.use(express.static(__dirname + '/IMG'));
+app.use(express.static(__dirname + '/public'));
+
+app.use('/api', require('./router/Rutas Web'));
 
 app.get('/', (req, res) => {
     res.render('respuesta desde express');
