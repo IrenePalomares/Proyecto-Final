@@ -198,7 +198,7 @@ h5{
     width: 90%;
 }
 @media screen and (max-width:991px) {
-    h5{
+    .info{
         font-size: 10px;
     }
 }
