@@ -3,11 +3,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 //monitor de plantillas
-app.set('view engine', 'ejs');
+// app.set('view engine', 'ejs');
 
 // app.set('views', __dirname + '/views')
 
 app.use(express.static(__dirname + '/HTML'));
+app.use(express.static(__dirname + '/CSS'));
+app.use(express.static(__dirname + '/IMG'));
 
 app.get('/', (req, res) => {
     res.render('respuesta desde express');
