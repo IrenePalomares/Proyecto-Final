@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Usuario = require('../models/register');
 
-router.get('/', async(req, res) =>{
+router.get('/Registrar', async(req, res) =>{
     try {
         const arrayUsuariosDB = await Usuario.find();
         console.log(arrayUsuariosDB);
