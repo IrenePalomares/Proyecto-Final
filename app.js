@@ -94,10 +94,3 @@ app.use((req, res, next) => {
 app.listen(port, () => {
     console.log(`escuchando solicitudes http://localhost:${port}`);
 });
-// const server = http.createServer ((req, res) => {
-//     res.end('estoy respondiendo a tu solicitud v2');
-// });
-// const puerto = 3001;
-// server.listen(puerto, () => {
-//     console.log('escuchando solicitudes');
-// })
