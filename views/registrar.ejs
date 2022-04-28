@@ -1,0 +1,77 @@
+<%- include('template/cabecera') %>
+
+<body class="fondo">
+    <form action="" class="mt-10  mt-3">
+        <div class="container fnegro rounded movil">
+            <div class="row fblanco negro rounded-top">
+                <div class="col-lg-12 col-md-12 rounded p-0 text-center">
+                    <h1>TRIVIAL LOS ABSOLUTOS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-flex d-md-flex p-0 rounded-left d-flex jusify-content-center align-self-stretch">
+                    <div class="row rounded-left w-100 m-0">
+                        <img  class="w-100 p-0" src="../IMG/registro.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 d-flex flex-column justify-content-evenly">
+                    <div class="row p-0 text-center mt-4">
+                        <div class="col-xl-12 col-lg-12 col-md-12 blanco">
+                            <h1>¡Regístrate!</h1>
+                        </div>
+                    </div>
+                    <div class="row p-0 text-center">
+                        <div class="col-xl-12 col-lg-12 col-md-12 blanco">
+                            <h4>(Si es con un nombre de cuento mejor... <i class="bi bi-emoji-wink"></i>)</h4>
+                        </div>
+                    </div>
+                    <div class="row w-100 m-0 align-self-center mt-4">
+                        <div class="col-xl-12 col-lg-12 col-md-12 p-0">
+                            <div class="row align-self-start">
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" required name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador">
+                                        <label for="usuario" style="font-weight: bold;">Nombre Jugador*</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-self-start mt-xl-5 mt-lg-5 mt-md-3 mt-sm-3 mt-3">
+                                <div class="col-xl-12 col-lg-12 col-md-12">
+                                    <div class="form-floating">
+                                        <input type="text" required name="correo" id="correo" class="form-control" placeholder="Correo electrónico">
+                                        <label for="correo" style="font-weight: bold;">Correo electrónico*</label>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="row align-self-start mt-xl-5 mt-lg-5 mt-md-3 mt-sm-3 mt-3">
+                                <div class="form-floating col-lg-6 col-md-12 col-sm-12">
+                                    <input type="password" required name="contraseña" id="contraseña" class="form-control" placeholder="Contraseña">
+                                    <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
+                                </div>
+                                <div class="form-floating col-xl-6 col-lg-6 col-md-12 col-sm-12 mt-lg-0 mt-md-3 mt-sm-3 mt-3">
+                                    <input type="password" required name="confirmar" id="confirmar" class="form-control" placeholder="Confirmar Contraseña" style="width: 100%;">
+                                    <label for="confirmar" style="font-weight: bold;"> Confirmar Contraseña*</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3 align-self-start">
+                        <div class="form-check-floating col-lg-12 col-md-12 col-sm-12">
+                            <input type="checkbox" required name="checkbox-1" class="form-check-input" id="checkbox-1">
+                            <label for="checkbox-1" class="form-check-label blanco">Acepto los términos y condiciones</label>
+                        </div>
+                    </div>
+                    <div class="row mb-4 mt-4">
+                        <div class="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">
+                            <button id="registrarboton" class="btn fondo negro" style="font-weight: bold;">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</body>
+
+<%- include('template/piedepagina') %>

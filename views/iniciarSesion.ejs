@@ -1,0 +1,53 @@
+<%- include('template/cabecera') %>
+
+<body class="fondo">
+    <form action="" class="  mt-10  mt-3">
+        <div class="container fnegro rounded movil">
+            <div class="row fblanco negro rounded-top">
+                <div class="col-lg-12 col-md-12 rounded p-0 text-center">
+                    <h1>TRIVIAL LOS ABSOLUTOS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-flex d-md-flex p-0 rounded-left d-flex jusify-content-center align-self-stretch">
+                    <div class="row">
+                        <img  class="rounded-left" src="../IMG/fondo.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0 d-flex flex-column justify-content-evenly">
+                    <div class="row p-0 text-center mt-4">
+                        <div class="col-12 t blanco">
+                            <h1>¡Inicia Sesión!</h1>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
+                        <div class="col-11">
+                            <div class="form-floating">
+                                <input type="text" required name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador">
+                                <label for="usuario" style="font-weight: bold;">Nombre Jugador*</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
+                            <div class="col-11">
+                                <div class="form-floating">
+                                    <input type="password" required name="contraseña" id="contraseña" class="form-control" placeholder="Contraseña">
+                                    <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="row mb-4 mt-4">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button id="iniciarsesion" class="btn fondo negro" style="font-weight: bold;">Iniciar Sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+<%- include('template/piedepagina') %>

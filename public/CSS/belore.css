@@ -1,0 +1,13 @@
+body{
+    background-image: url("../IMG/belore.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position:center;
+}
+@media screen and (max-width:991px) {
+    body{
+        background-image: url("../IMG/beloremobile.jpg");
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+}

@@ -7,19 +7,19 @@ btnContacto = document.getElementById('contacto');
 
 const menu = () => {
     btnInicio.addEventListener("click", function() {
-        window.location.href="./index.html";
+        window.location.href="/";
     });
     btnSesion.addEventListener("click", function(){
-        window.location.href="./InicioSesion.html";
+        window.location.href="IniciarSesion";
     });
     btnRegistrar.addEventListener("click", function(){
-        window.location.href="./registrar.html";
+        window.location.href="Registrar";
     });
     btnRanking.addEventListener("click", function(){
-        window.location.href="./ranking.html";
+        window.location.href="Ranking";
     });
     btnContacto.addEventListener("click", function(){
-        window.location.href="./contacto.html";
+        window.location.href="Contacto";
     });
 }
 menu();

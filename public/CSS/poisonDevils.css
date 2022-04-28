@@ -1,0 +1,14 @@
+body{
+    background-image: url("../IMG/fondopd.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position:center;
+}
+@media screen and (max-width:991px) {
+    body{
+        background-image: url("../IMG/fondopdmobile.png");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-attachment: fixed;
+    }
+}

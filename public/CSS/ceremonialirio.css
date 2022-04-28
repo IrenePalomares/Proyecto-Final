@@ -1,0 +1,14 @@
+body{
+    background-image: url("../IMG/greenmaze.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position:center;
+    }
+@media screen and (max-width:991px) {
+    body{
+        background-image: url("../IMG/greenmazemobile.jpg");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-attachment: fixed;
+        }
+}

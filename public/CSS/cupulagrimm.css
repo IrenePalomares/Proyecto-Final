@@ -1,0 +1,14 @@
+body{
+    background-image: url("../IMG/cupulagrim.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position:center;
+    }
+@media screen and (max-width:991px) {
+    body{
+        background-image: url("../IMG/cupulagrimmovil.jpg");
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-attachment: fixed;
+        }
+}
