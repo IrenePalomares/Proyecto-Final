@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+require('dotenv').config();
+
 //motor de plantillas
 app.set('view engine', 'ejs');
 app.set('views',__dirname + '/views'); 
@@ -13,15 +15,13 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 3000;
 
-const user = 'trivial_registro';
-const password = '7vv3WBNK0n15RXPH';
-const dbname = 'Trivial';
-const uri = `mongodb+srv://${user}:${password}@cluster0.kwbpr.mongodb.net/${dbname}?retryWrites=true&w=majority`;
+//Conexión a base de datos Trivial
+const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.kwbpr.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 
 const mongoose = require('mongoose');
     mongoose.connect(uri, 
-        {useNewUrlParser: true, useUnifiedTopology: true}
-)
+        { useNewUrlParser: true, useUnifiedTopology: true }
+        )
 .then(() => console.log('Base de datos conectada'))
 .catch(e => console.log(e))
 

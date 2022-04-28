@@ -1,3 +1,4 @@
 node_modules
+.env
 preguntas.md
 preguntas.pdf
