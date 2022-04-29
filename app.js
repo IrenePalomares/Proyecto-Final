@@ -2,16 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
+//aplicadción para recoger información formulario 
+app.use(bodyParser.urlencoded({ extended: false }));
+//aplicación para información json
+app.use(bodyParser.json());
+
 require('dotenv').config();
 
 //motor de plantillas
 app.set('view engine', 'ejs');
 app.set('views',__dirname + '/views'); 
 
-//aplicadción para formulario 
-app.use(bodyParser.urlencoded({ extended: false }));
-//aplicación para json
-app.use(bodyParser.json());
+
 
 const port = process.env.PORT || 3000;
 

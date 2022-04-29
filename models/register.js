@@ -8,6 +8,6 @@ const usuarioSchema = new Schema({
 })
 
 //crear modelo
-const Usuario = mongoose.model('Usuario', usuarioSchema);
+const Usuario = mongoose.model('Usuarios', usuarioSchema);
 
 module.exports = Usuario; 
