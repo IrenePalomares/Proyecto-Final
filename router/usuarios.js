@@ -41,8 +41,8 @@ router.post('/', [
     console.log(`${correo}`);
     const final = {
         usuario: user,
-        correo: password,
-        contraseña: correo
+        correo: correo,
+        contraseña: password
     }
         try {
             const mensaje = {correcto: `Ya puedes iniciar sesión ${body.usuario} ¡Nuestros rastreadores ya tienen tu información en su base de datos!`, error: 'Las contraseñas no coinciden'}
