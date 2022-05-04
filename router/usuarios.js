@@ -36,14 +36,12 @@ router.post('/', [
     var password = CryptoJS.AES.encrypt(body.contrasena, process.env.KEY);
     var correo = CryptoJS.AES.encrypt(body.correo, process.env.KEY);
 
-    console.log(`${user}`);
-    console.log(`${password}`);
-    console.log(`${correo}`);
     const final = {
         usuario: user,
         correo: correo,
-        contraseña: password
+        contrasena: password
     }
+    // console.log(final);
         try {
             const mensaje = {correcto: `Ya puedes iniciar sesión ${body.usuario} ¡Nuestros rastreadores ya tienen tu información en su base de datos!`, error: 'Las contraseñas no coinciden'}
             if (body.contrasena == body.confirmar) {
