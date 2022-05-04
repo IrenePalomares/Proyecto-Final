@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const app = express();
+app.use('/Registrar', require('../router/usuarios'))
+app.use('/IniciarSesion', require('../router/usuarios', '../router/iniciarSesion'))
 
 // Resireccionamiento de las rutas web
 
@@ -8,11 +11,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/IniciarSesion',(req, res) => {
-    res.render("iniciarSesion");
-})
-
-router.get('/Registrar',(req, res) => {
-    res.render("registrar");
+    res.render("iniciarSesion", {error:''});
 })
 
 router.get('/Contacto',(req, res) => {

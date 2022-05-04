@@ -1,6 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+// const session = require('express-session');
+// const cookieParser = require('cookie-parser');
+// const flash =require('connect-flash');
+
 const app = express();
+
 
 //aplicadción para recoger información formulario 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,16 +32,13 @@ const mongoose = require('mongoose');
 .then(() => console.log('Base de datos conectada'))
 .catch(e => console.log(e))
 
-//monitor de plantillas
-    // app.set('view engine', 'ejs');
-
-    // app.set('views', __dirname + '/views')
 //ruta estática
 app.use(express.static(__dirname + "/public"));
 
 //Rutas Web
 app.use('/', require('./router/rutasWeb'))
 app.use('/Registrar', require('./router/usuarios'))
+app.use('/IniciarSesion', require('./router/usuarios'))
 
 //error si el usuario intenta busacar una ruta que no se encuentra en el trivial
 app.use((req, res, next) => {

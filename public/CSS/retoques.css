@@ -210,3 +210,8 @@ h5{
         height: 100%;
     }
 }
+.close{
+    color: red;
+    background-color: none;
+    border:none;
+}
