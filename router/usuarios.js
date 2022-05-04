@@ -31,7 +31,6 @@ router.post('/', [
     } 
     else {
         const body = req.body
-
     var user = CryptoJS.AES.encrypt(body.usuario, process.env.KEY);
     var password = CryptoJS.AES.encrypt(body.contrasena, process.env.KEY);
     var correo = CryptoJS.AES.encrypt(body.correo, process.env.KEY);

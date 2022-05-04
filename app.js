@@ -38,7 +38,10 @@ app.use(express.static(__dirname + "/public"));
 //Rutas Web
 app.use('/', require('./router/rutasWeb'))
 app.use('/Registrar', require('./router/usuarios'))
-app.use('/IniciarSesion', require('./router/usuarios'))
+app.use('/IniciarSesion', require('./router/iniciar'))
+app.use('/IniciarSesion', require('./router/usuarios' ))
+
+
 
 //error si el usuario intenta busacar una ruta que no se encuentra en el trivial
 app.use((req, res, next) => {

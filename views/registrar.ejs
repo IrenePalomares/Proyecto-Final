@@ -14,7 +14,7 @@
     </svg>
                 <% if(typeof validaciones != 'undefined') { %>
                     <% validaciones.forEach( (validacion) => { %>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <div class="alert alert-danger alert-dismissible fade show mt-3 mb-0" role="alert">
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                             <strong class="text-center"><%= validacion.msg %></strong>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -22,7 +22,7 @@
                     <% }) %>
                 <% } %>
                 <% if(error == 'error') { %>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-0" role="alert">
                         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#check-circle-fill"/></svg>
                         <strong class="text-center"><%= mensaje.error %></strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -101,4 +101,3 @@
     </form>
 </body>
 <%- include('template/piedepagina') %>
-<script src="/JS/registrar.js"></script>
