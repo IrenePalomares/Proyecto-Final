@@ -33,7 +33,7 @@ router.post('/', [
         const body = req.body
     var user = CryptoJS.AES.encrypt(body.usuario, process.env.KEY);
     var password = CryptoJS.AES.encrypt(body.contrasena, process.env.KEY);
-    var correo = CryptoJS.AES.encrypt(body.correo, process.env.KEY);
+    var correo = body.correo;
 
     const final = {
         usuario: user,
@@ -46,7 +46,7 @@ router.post('/', [
             if (body.contrasena == body.confirmar) {
                 await Usuario.create(final);
                 
-                res.render('iniciarSesion', {mensaje: mensaje, error: 'success'});
+                res.render('iniciarSesion', {mensaje: mensaje.correcto, error: 'success'});
                 res.redirect('/IniciarSesion');
             } else{
                 res.render('registrar', {mensaje: mensaje, error: 'error'});

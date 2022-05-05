@@ -25,15 +25,15 @@
         <div class="alert alert-success alert-dismissible fade show mt-3 mb-0" role="alert">
             
              <p class="m-0"><svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <strong class="text-center"><%= mensaje.correcto %></strong> 
+                <strong class="text-center"><%= mensaje %></strong> 
                  </p>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <% } %>
     <% if(error == 'error') { %>
         <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#check-circle-fill"/></svg>
-            <strong class="text-center"><%= mensaje.error %></strong>
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <strong class="text-center"><%= mensaje %></strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <% } %>
@@ -61,8 +61,8 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
                         <div class="col-11">
                             <div class="form-floating">
-                                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador">
-                                <label for="usuario" style="font-weight: bold;">Nombre Jugador o Correo Electrónico*</label>
+                                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador" value="<% if(typeof valores != 'undefined') { %><%= valores.usuario %><% } %>">
+                                <label for="usuario" style="font-weight: bold;">Correo Electrónico*</label>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
                                 <div class="form-floating">
-                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña">
+                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
                                     <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
                                 </div>
                             </div>

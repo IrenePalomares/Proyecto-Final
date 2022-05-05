@@ -23,28 +23,31 @@ router.post('/', [
 ], async(req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        console.log(req.body);
+        // console.log(req.body);
         const valores = req.body;
         const validaciones = errors.array();
-        console.log(validaciones);
-        res.render('iniciarSesion', {validaciones: validaciones, valores: valores, error:'hola'});
+        // console.log(validaciones);
+        res.render('iniciarSesion', {validaciones: validaciones, valores: valores, error:'hola', mensaje:''});
     } 
     else {
-        const arrayUsuarios = await Session.find()
         const body = req.body;
-        const mensaje = {correcto: `Absoluto, acabas de acceder a nuestro Trivial, ¿preparado para jugar?`, error: 'El usuario o la contraseña son incorrectos'}
-        arrayUsuarios.forEach( info => {
-            var user = CryptoJS.AES.decrypt(info.usuario,process.env.KEY).toString(CryptoJS.enc.Utf8);
-            var password = CryptoJS.AES.decrypt(info.contrasena,process.env.KEY).toString(CryptoJS.enc.Utf8);
-            var correo = CryptoJS.AES.decrypt(info.correo,process.env.KEY).toString(CryptoJS.enc.Utf8);
-            console.log(correo)
-                if ((correo == body.usuario || user == body.usuario)&&(password == body.contrasena)) {
-                    console.log('Se ha iniciado sesión correctamente');
-                    res.render('iniciarSesion', {mensaje: mensaje, error: 'success'});
-                } 
-        });
+        const arrayUsuario = await Session.findOne({correo:body.usuario});
+        const mensaje = {correcto: `Absoluto, acabas de acceder a nuestro Trivial ¿preparado para jugar?`, errorPassword: 'La contraseña es incorrecta Absoluto, asegúrate de que es con la que te registraste.', 
+        notFound: 'Absoluto, nuestros rastreadores no encuentran tu usuario. Comprueba que lo has escrito correctamente.' }
+        console.log(arrayUsuario);
+        if (!arrayUsuario) {
+            res.render('iniciarSesion', { mensaje: mensaje.notFound, error: 'error' })
+        } else {
+                var password = CryptoJS.AES.decrypt(arrayUsuario.contrasena,process.env.KEY).toString(CryptoJS.enc.Utf8);
+                if (body.contrasena == password){
+                    res.render('iniciarSesion', { mensaje: mensaje.correcto, error: 'success' })
+                } else {
+                    res.render('iniciarSesion', { mensaje: mensaje.errorPassword, error: 'error' })
+                }
+        }
+        
         // console.log(arrayDecrypt);
-        res.render('iniciarSesion', {arrayUsuarios: arrayUsuarios, error:'hola'});
+        res.render('iniciarSesion', {arrayUsuario: arrayUsuario, error:'hola'});
     }
 });
 
