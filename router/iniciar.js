@@ -45,8 +45,6 @@ router.post('/', [
                     res.render('iniciarSesion', { mensaje: mensaje.errorPassword, error: 'error' })
                 }
         }
-        
-        // console.log(arrayDecrypt);
         res.render('iniciarSesion', {arrayUsuario: arrayUsuario, error:'hola'});
     }
 });

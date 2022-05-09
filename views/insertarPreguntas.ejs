@@ -55,36 +55,76 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 d-flex flex-column justify-content-evenly">
                     <div class="row p-0 text-center mt-4">
                         <div class="col-12 t blanco">
-                            <h1>¡Inicia Sesión!</h1>
+                            <h1>Insertar Pregunta</h1>
                         </div>
                     </div>
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
                         <div class="col-11">
                             <div class="form-floating">
                                 <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador" value="<% if(typeof valores != 'undefined') { %><%= valores.usuario %><% } %>">
-                                <label for="usuario" style="font-weight: bold;">Correo Electrónico*</label>
+                                <label for="usuario" style="font-weight: bold;">Pregunta*</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
-                            <div class="col-11">
+                            <div class="col-6">
                                 <div class="form-floating">
-                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
-                                    <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
+                                    <input type="text" name="A" id="A" class="form-control" placeholder="A" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
+                                    <label for="A" style="font-weight: bold;">Opción A*</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" name="B" id="B" class="form-control" placeholder="B" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
+                                    <label for="B" style="font-weight: bold;">Opción B*</label>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" name="C" id="C" class="form-control" placeholder="C" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
+                                    <label for="C" style="font-weight: bold;">Opción C*</label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating">
+                                    <input type="text" name="D" id="D" class="form-control" placeholder="D" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
+                                    <label for="D" style="font-weight: bold;">Opción D*</label>
                                 </div>
                             </div>
                     </div>
 
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
-                                <a href="" class="blanco" style="font-weight: bold; text-decoration: none;">¿Has olvidado tu contraseña?</a>
+                                <div class="form-floating">
+                                    <select name="pais" id="pais" class="form-select form-select-lg mb-3" aria-label="Selección de país">
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
+                            <div class="col-11">
+                                <select name="pais" id="pais" class="form-select form-select-lg mb-3" aria-label="Selección de país">
+                                    <option value="TC">Todas las categorías</option>
+                                    <option value="V">Verdacksal</option>
+                                    <option value="P">Personajes</option>
+                                    <option value="PD">Posion Devils</option>
+                                    <option value="BR">Black Ravens</option>
+                                    <option value="G">Geografía</option>
+                                    <option value="R">Renegados</option>
+                                </select>
                             </div>
                     </div>
 
                     <div class="row mb-4 mt-4">
                         <div class="col-12 d-flex justify-content-center">
-                            <button id="iniciarsesion" class="btn fondo negro" style="font-weight: bold;">Iniciar Sesión</button>
+                            <button id="iniciarsesion" class="btn fondo negro" style="font-weight: bold;">Insertar Pregunta</button>
                         </div>
                     </div>
                 </div>

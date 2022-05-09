@@ -46,12 +46,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-flex d-md-flex p-0 rounded-left d-flex jusify-content-center align-self-stretch">
-                    <div class="row">
-                        <img  class="rounded-left" src="/IMG/fondo.jpg" alt="">
-                    </div>
-                </div>
-
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 d-flex flex-column justify-content-evenly">
                     <div class="row p-0 text-center mt-4">
                         <div class="col-12 t blanco">
@@ -61,8 +55,11 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
                         <div class="col-11">
                             <div class="form-floating">
-                                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador" value="<% if(typeof valores != 'undefined') { %><%= valores.usuario %><% } %>">
-                                <label for="usuario" style="font-weight: bold;">Correo Electrónico*</label>
+                                <select name="pais" id="pais" class="form-select form-select-lg mb-3" aria-label="Selección de país">
+                                    <option value="mexico">México</option>
+                                    <option value="españa">España</option>
+                                    <option value="colombia">Colombia</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -70,8 +67,15 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
                                 <div class="form-floating">
-                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
-                                    <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
+                                    <select name="pais" id="pais" class="form-select form-select-lg mb-3" aria-label="Selección de país">
+                                        <option value="">Todas las categorías</option>
+                                        <option value="V">Verdacksal</option>
+                                        <option value="P">Personajes</option>
+                                        <option value="PD">Posion Devils</option>
+                                        <option value="BR">Black Ravens</option>
+                                        <option value="G">Geografía</option>
+                                        <option value="R">Renegados</option>
+                                    </select>
                                 </div>
                             </div>
                     </div>
@@ -86,6 +90,11 @@
                         <div class="col-12 d-flex justify-content-center">
                             <button id="iniciarsesion" class="btn fondo negro" style="font-weight: bold;">Iniciar Sesión</button>
                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-flex d-md-flex p-0 rounded-left d-flex jusify-content-center align-self-stretch">
+                    <div class="row">
+                        <img  class="rounded-left" src="/IMG/fondo.jpg" alt="">
                     </div>
                 </div>
             </div>

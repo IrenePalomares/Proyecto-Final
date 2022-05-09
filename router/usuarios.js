@@ -1,5 +1,3 @@
-// import ncrypt from 'ncrypt-js';
-// const flash = require("connect-flash/lib/flash");
 const CryptoJS = require("crypto-js");
 const express = require('express');
 const router = express.Router();
@@ -40,7 +38,6 @@ router.post('/', [
         correo: correo,
         contrasena: password
     }
-    // console.log(final);
         try {
             const mensaje = {correcto: `Ya puedes iniciar sesión ${body.usuario} ¡Nuestros rastreadores ya tienen tu información en su base de datos!`, error: 'Las contraseñas no coinciden'}
             if (body.contrasena == body.confirmar) {

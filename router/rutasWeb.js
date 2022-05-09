@@ -52,4 +52,8 @@ router.get('/PruebasBleidaar',(req, res) => {
     res.render("pruebas");
 })
 
+router.get('/Partida', (req, res) => {
+    res.render("partida");
+})
+
 module.exports = router;
