@@ -4,16 +4,13 @@ const app = express();
 app.use('/Registrar', require('../router/usuarios'))
 app.use('/IniciarSesion', require('../router/iniciar'))
 app.use('/IniciarSesion', require('../router/usuarios'))
+app.use('/Partida', require('../router/juego'))
 
-// Resireccionamiento de las rutas web
+// Redireccionamiento de las rutas web
 
 router.get('/', (req, res) => {
     res.render("index");
 })
-
-// router.get('/IniciarSesion',(req, res) => {
-//     res.render("iniciarSesion", {error:''});
-// })
 
 router.get('/Contacto',(req, res) => {
     res.render("contacto");
@@ -52,8 +49,5 @@ router.get('/PruebasBleidaar',(req, res) => {
     res.render("pruebas");
 })
 
-router.get('/Partida', (req, res) => {
-    res.render("partida");
-})
 
 module.exports = router;

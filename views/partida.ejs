@@ -5,84 +5,94 @@
 <%- include('template/cabecerainfo2') %>
 
 <body class="fondo p-0">
-    <div class="container p-0 blanco mt-3 movil">
+    <% if(error == 'success') { %>
+        <div class="alert alert-success alert-dismissible fade show mt-3 mb-0" role="alert">
+            
+            <p class="m-0"><svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <strong class="text-center"><%= mensaje %></strong> 
+            </p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+    <div class="container-fluid p-0 blanco mt-3 movil">
         <div class="row fnegro blanco rounded-top">
             <div class="col-lg-12 col-md-12 p-0 text-center">
                 <h1>TRIVIAL LOS ABSOLUTOS</h1>
             </div>
         </div>
-        <div class="row">
-
-        </div>
-        <div class="row">
+        <div class="row fblanco negro">
             <div class="col-12">
                 <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-12">
+                    <div class="col-9 p-0 d-lg-flex flex-column justify-content-around">
+                        <div class="row w-100 m-0">
+                            <div class="col-12 p-0">
                                 <h5>Opción A</h5>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
+                        <div class="row w-100 m-0">
+                            <div class="col-12 p-0">
                                 <h5> Opción B</h5>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="row">
-                            <div class="col-12">
-                                <img src="/IMG/pordefecto-3.jpg" alt="" srcset="">
+                            <div class="col-12 p-0">
+                                <img src="/IMG/pordefecto-3.jpg" alt="" srcset="" width="100%" height="100%">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-12">
+                    <div class="col-12 p-0">
+                        <div class="row w-100 m-0">
+                            <div class="col-9 p-0">
                                 <h5>Opción C</h5>
                             </div>
+                            <div class="col-3 p-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h6>categoría</h6>
+                                    </div>
+                                </div>
+                                <div class="row w-100 m-0">
+                                    <div class="col-6 p-0">
+                                        <h5>Nombre Jugador</h5>
+                                    </div>
+                                    <div class="col-6 p-0">
+                                        <h5>Tiempo</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                           <div class="col-12">
+                        <div class="row w-100 m-0">
+                           <div class="col-9 p-0">
                                <h5>Opción D</h5>
-                           </div> 
-                    </div>
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col-12">
-                                <p>Nombre categoría</p>
+                           </div>
+                            <div class="col-3 p-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        Puntuación actual
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button id="siguiente" class="btn fondo negro" style="font-weight: bold;">Siguienete</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button id="finalizar" class="btn fondo negro" style="font-weight: bold;">Finalizar Partida</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <h5>Nombre Jugador</h5>
-                            </div>
-                            <div class="col-4">
-                                <h5>Tiempo</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-12">
-                                Puntuación actual
-                            </div>
-                        </div>
-                        <div class="row">
-                            <button id="siguiente" class="btn fondo negro" style="font-weight: bold;">Siguienete</button>
-                            <button id="finalizar" class="btn fondo negro" style="font-weight: bold;">Finalizar Partida</button>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
+    </div>
+    </div>
 </body>
+    <%- include('template/piedepagina') %>
 
-<%- include('template/piedepagina') %>
+
 
 </html>

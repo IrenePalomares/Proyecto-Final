@@ -8,10 +8,10 @@ const sesionSchema = new Schema({
     C: String, 
     D: String, 
     Correcta: String, 
-    Categoría: String, 
+    Categoría: String 
 })
 
 //crear modelo
-const Sesion = mongoose.model('usuarios', sesionSchema);
+const Preguntas = mongoose.model('Preguntas', sesionSchema);
 
-module.exports = Sesion; 
+module.exports = Preguntas; 

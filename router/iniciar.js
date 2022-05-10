@@ -40,7 +40,7 @@ router.post('/', [
         } else {
                 var password = CryptoJS.AES.decrypt(arrayUsuario.contrasena,process.env.KEY).toString(CryptoJS.enc.Utf8);
                 if (body.contrasena == password){
-                    res.render('iniciarSesion', { mensaje: mensaje.correcto, error: 'success' })
+                    res.render('partida', { mensaje: mensaje.correcto, error: 'success'})
                 } else {
                     res.render('iniciarSesion', { mensaje: mensaje.errorPassword, error: 'error' })
                 }

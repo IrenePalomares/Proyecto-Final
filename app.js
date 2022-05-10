@@ -36,10 +36,11 @@ const mongoose = require('mongoose');
 app.use(express.static(__dirname + "/public"));
 
 //Rutas Web
-app.use('/', require('./router/rutasWeb'))
-app.use('/Registrar', require('./router/usuarios'))
-app.use('/IniciarSesion', require('./router/iniciar'))
-app.use('/IniciarSesion', require('./router/usuarios' ))
+app.use('/', require('./router/rutasWeb'));
+app.use('/Registrar', require('./router/usuarios'));
+app.use('/IniciarSesion', require('./router/iniciar'));
+app.use('/IniciarSesion', require('./router/usuarios'));
+app.use('/Partida', require('./router/juego'));
 
 
 
