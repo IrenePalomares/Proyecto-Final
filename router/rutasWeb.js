@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const app = express();
+
 app.use('/Registrar', require('../router/usuarios'))
 app.use('/IniciarSesion', require('../router/iniciar'))
 app.use('/IniciarSesion', require('../router/usuarios'))
 app.use('/Partida', require('../router/juego'))
+app.use('/ElegirOpciones', require('../router/elegir'))
+app.use('/InsertarPreguntas', require('../router/preguntas'))
 
 // Redireccionamiento de las rutas web
 
@@ -19,9 +22,11 @@ router.get('/Contacto',(req, res) => {
 router.get('/Ranking',(req, res) => {
     res.render("ranking");
 })
+
 router.get('/PoisonDevils',(req, res) => {
     res.render("poisonDevils");
 })
+
 router.get('/BlackRavens',(req, res) => {
     res.render("blackRavens");
 })
@@ -41,6 +46,7 @@ router.get('/CeremoniaDelLirio',(req, res) => {
 router.get('/Verdacksal',(req, res) => {
     res.render("verdacksal");
 })
+
 router.get('/Vastago',(req, res) => {
     res.render("vastago");
 })

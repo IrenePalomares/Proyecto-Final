@@ -6,8 +6,6 @@ const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
         const arrayUsuarios = await Session.find()
-        var arrayDecrypt = [];
-        // console.log(arrayUsuarios)
     res.render('iniciarSesion', {
         arrayUsuarios: arrayUsuarios,
         error:'hola'});
@@ -23,10 +21,8 @@ router.post('/', [
 ], async(req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        // console.log(req.body);
         const valores = req.body;
         const validaciones = errors.array();
-        // console.log(validaciones);
         res.render('iniciarSesion', {validaciones: validaciones, valores: valores, error:'hola', mensaje:''});
     } 
     else {
@@ -34,13 +30,15 @@ router.post('/', [
         const arrayUsuario = await Session.findOne({correo:body.usuario});
         const mensaje = {correcto: `Absoluto, acabas de acceder a nuestro Trivial ¿preparado para jugar?`, errorPassword: 'La contraseña es incorrecta Absoluto, asegúrate de que es con la que te registraste.', 
         notFound: 'Absoluto, nuestros rastreadores no encuentran tu usuario. Comprueba que lo has escrito correctamente.' }
-        console.log(arrayUsuario);
+        // console.log(arrayUsuario);
         if (!arrayUsuario) {
             res.render('iniciarSesion', { mensaje: mensaje.notFound, error: 'error' })
         } else {
                 var password = CryptoJS.AES.decrypt(arrayUsuario.contrasena,process.env.KEY).toString(CryptoJS.enc.Utf8);
+                var usuaroio = CryptoJS.AES.decrypt(arrayUsuario.usuario,process.env.KEY).toString(CryptoJS.enc.Utf8);
                 if (body.contrasena == password){
-                    res.render('partida', { mensaje: mensaje.correcto, error: 'success'})
+                    res.render('eleccion', { nombre: usuaroio, mensaje: mensaje.correcto, error: 'success'})
+                    res.redirect('/ElegirOpciones');
                 } else {
                     res.render('iniciarSesion', { mensaje: mensaje.errorPassword, error: 'error' })
                 }

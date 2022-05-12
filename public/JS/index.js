@@ -4,6 +4,7 @@ btnConfirmar = document.getElementById('confirmar');
 btnRegistrar = document.getElementById('registrar');
 btnRanking = document.getElementById('ranking');
 btnContacto = document.getElementById('contacto');
+btnJugar = document.getElementById('jugar');
 
 const menu = () => {
     btnInicio.addEventListener("click", function() {
@@ -20,6 +21,9 @@ const menu = () => {
     });
     btnContacto.addEventListener("click", function(){
         window.location.href="Contacto";
+    });
+    btnJugar.addEventListener("click", function(){
+        window.location.href="Partida";
     });
 }
 menu();

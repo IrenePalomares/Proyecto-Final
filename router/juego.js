@@ -1,7 +1,7 @@
 const CryptoJS = require("crypto-js");
 const express = require('express');
 const router = express.Router();
-const Preguntas = require('../models/preguntas');
+const Preguntas = require('../models/Preguntas');
 const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{

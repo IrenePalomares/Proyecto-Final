@@ -12,15 +12,6 @@
             <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
         </symbol>
     </svg>
-    <% if(typeof validaciones != 'undefined') { %>
-        <% validaciones.forEach( (validacion) => { %>
-            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                <strong class="text-center"><%= validacion.msg %></strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        <% }) %>
-    <% } %>
     <% if(error == 'success') { %>
         <div class="alert alert-success alert-dismissible fade show mt-3 mb-0" role="alert">
             
@@ -30,15 +21,8 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <% } %>
-    <% if(error == 'error') { %>
-        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-            <strong class="text-center"><%= mensaje %></strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <% } %>
         
-    <form action="/IniciarSesion" method="POST" class="  mt-10  mt-3">
+    <form action="/ElegirOpciones" method="POST" class="  mt-10  mt-3">
         <div class="container fnegro rounded movil">
             <div class="row fblanco negro rounded-top">
                 <div class="col-lg-12 col-md-12 rounded p-0 text-center">
@@ -49,25 +33,15 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 d-flex flex-column justify-content-evenly">
                     <div class="row p-0 text-center mt-4">
                         <div class="col-12 t blanco">
-                            <h1>¡Inicia Sesión!</h1>
-                        </div>
-                    </div>
-                    <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
-                        <div class="col-11">
-                            <div class="form-floating">
-                                <select name="pais" id="pais" class="form-select form-select-lg mb-3" aria-label="Selección de país">
-                                    <option value="mexico">México</option>
-                                    <option value="españa">España</option>
-                                    <option value="colombia">Colombia</option>
-                                </select>
-                            </div>
+                            <h2 style="padding-left: 2%; padding-right: 2%;"><%= nombre %> elige el modo en el que quieres jugar</h2>
                         </div>
                     </div>
 
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
-                                <div class="form-floating">
-                                    <select name="pais" id="pais" class="form-select form-select-lg mb-3" aria-label="Selección de país">
+                                <div class="form-floating mb-3">
+                                    <select name=" categorias" id=" categorias" class="form-select">
+                                        <option value=""></option>
                                         <option value="">Todas las categorías</option>
                                         <option value="V">Verdacksal</option>
                                         <option value="P">Personajes</option>
@@ -76,25 +50,37 @@
                                         <option value="G">Geografía</option>
                                         <option value="R">Renegados</option>
                                     </select>
+                                    <label style="font-weight: bold; font-size:20px;" for="categorias">Selecciona la categoría*</label>
                                 </div>
                             </div>
                     </div>
-
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
-                                <a href="" class="blanco" style="font-weight: bold; text-decoration: none;">¿Has olvidado tu contraseña?</a>
+                                <div class="form-floating">
+                                    <select name="numero" id="numero" class="form-select">
+                                        <option value=""></option>
+                                        <option value="5">5</option>
+                                        <option value="V">10</option>
+                                        <option value="P">15</option>
+                                        <option value="PD">20</option>
+                                        <option value="BR">25</option>
+                                        <option value="G">30</option>
+                                    </select>
+                                    <label style="font-weight: bold; font-size:20px;" for="categorias">Selecciona el número de preguntas*</label>
+                                </div>
                             </div>
                     </div>
-
                     <div class="row mb-4 mt-4">
                         <div class="col-12 d-flex justify-content-center">
-                            <button id="iniciarsesion" class="btn fondo negro" style="font-weight: bold;">Iniciar Sesión</button>
+                            <button id="jugar" class="btn fondo negro" style="font-weight: bold;">Jugar Partida</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-flex d-md-flex p-0 rounded-left d-flex jusify-content-center align-self-stretch">
-                    <div class="row">
-                        <img  class="rounded-left" src="/IMG/fondo.jpg" alt="">
+                    <div class="row w-100 m-0">
+                        <div class="col-12 p-0">
+                            <img  class="rounded-left" src="/IMG/play.jpg" alt="" width="100%">
+                        </div>
                     </div>
                 </div>
             </div>

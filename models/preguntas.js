@@ -8,7 +8,7 @@ const sesionSchema = new Schema({
     C: String, 
     D: String, 
     Correcta: String, 
-    Categoría: String 
+    Categoria: String 
 })
 
 //crear modelo

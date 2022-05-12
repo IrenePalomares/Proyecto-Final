@@ -41,13 +41,14 @@ app.use('/Registrar', require('./router/usuarios'));
 app.use('/IniciarSesion', require('./router/iniciar'));
 app.use('/IniciarSesion', require('./router/usuarios'));
 app.use('/Partida', require('./router/juego'));
-
+app.use('/ElegirOpciones', require('./router/elegir'));
+app.use('/InsertarPreguntas', require('./router/preguntas'));
 
 
 //error si el usuario intenta busacar una ruta que no se encuentra en el trivial
 app.use((req, res, next) => {
     res.status(404).render("404", {
-        titulo: 'Error 404 Not Found'
+        titulo: '¿TE HAS PERDIDO? ¿Qué estabas buscando ehh?'
     })
 })
 
