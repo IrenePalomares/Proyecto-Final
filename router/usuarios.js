@@ -1,11 +1,12 @@
 const CryptoJS = require("crypto-js");
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 const Usuario = require('../models/register');
 const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
-    res.render("registrar", {error:'hola'});
+    res.render("registrar", {error:'hola', nombre: session.nombre});
 });
 
 router.post('/', [
@@ -21,11 +22,11 @@ router.post('/', [
 ], async(req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()){
-        console.log(req.body);
+        // console.log(req.body);
         const valores = req.body;
         const validaciones = errors.array();
-        console.log(validaciones);
-        res.render('registrar', {validaciones: validaciones, valores: valores, error:'hola'});
+        // console.log(validaciones);
+        res.render('registrar', {validaciones: validaciones, valores: valores, error:'hola', nombre: session.nombre});
     } 
     else {
         const body = req.body
@@ -43,10 +44,10 @@ router.post('/', [
             if (body.contrasena == body.confirmar) {
                 await Usuario.create(final);
                 
-                res.render('iniciarSesion', {mensaje: mensaje.correcto, error: 'success'});
+                res.render('iniciarSesion', {mensaje: mensaje.correcto, error: 'success', nombre: session.nombre});
                 res.redirect('/IniciarSesion');
             } else{
-                res.render('registrar', {mensaje: mensaje, error: 'error'});
+                res.render('registrar', {mensaje: mensaje, error: 'error', nombre: session.nombre});
             }
         } catch (error) {
             console.log(error)

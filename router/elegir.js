@@ -1,35 +1,25 @@
 const CryptoJS = require("crypto-js");
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 // const Preguntas = require('../models/preguntas');
 const { body, validationResult } = require('express-validator');
-const app = express();
 
 
 router.get('/', async(req, res) =>{
     res.render("eleccion", 
     {error:'hola',
-    nombre:'Absoluto'});
+    nombre: session.nombre});
 });
 
 router.post('/',
 [
     body('categorias', 'Selecciona una categoría')
         .exists()
-        .custom(({ req }) => {
-            if (req.body.categorias == '') {
-              throw new Error('Selecciona una categoría');
-            }
-            return true;
-          }),
+        .isLength({min:1}),
     body('numero', 'Selecciona el número de preguntas que quieres que tenga tu partida')
         .exists()
-        .custom(({ req }) => {
-            if (req.body.numero == '') {
-              throw new Error('Selecciona el número de preguntas que quieres que tenga la partida');
-            }
-            return true;
-          })
+        .isLength({min:1})            
 ]
 , async(req, res) => {
     // const errors = validationResult(req);
@@ -40,7 +30,7 @@ router.post('/',
     // }
     // else {
          const body = req.body;
-         res.render('partida', {mensaje:'hola', error:'no hay error'})
+         res.render('partida', {mensaje:'hola', error:'no hay error', nombre:session.nombre})
     // }
 });
 

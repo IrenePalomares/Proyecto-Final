@@ -1,4 +1,6 @@
+// const { LongWithoutOverridesClass } = require('bson');
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 const app = express();
 
@@ -12,47 +14,52 @@ app.use('/InsertarPreguntas', require('../router/preguntas'))
 // Redireccionamiento de las rutas web
 
 router.get('/', (req, res) => {
-    res.render("index");
+    res.render("index", {nombre: session.nombre});
 })
 
 router.get('/Contacto',(req, res) => {
-    res.render("contacto");
+    res.render("contacto", {nombre: session.nombre});
 })
 
 router.get('/Ranking',(req, res) => {
-    res.render("ranking");
+    res.render("ranking", {nombre: session.nombre});
 })
 
 router.get('/PoisonDevils',(req, res) => {
-    res.render("poisonDevils");
+    res.render("poisonDevils", {nombre: session.nombre});
 })
 
 router.get('/BlackRavens',(req, res) => {
-    res.render("blackRavens");
+    res.render("blackRavens", {nombre: session.nombre});
 })
 
 router.get('/Belore',(req, res) => {
-    res.render("belore");
+    res.render("belore", {nombre: session.nombre});
 })
 
 router.get('/CupulaGrimm',(req, res) => {
-    res.render("cupulaGrimm");
+    res.render("cupulaGrimm", {nombre: session.nombre});
 })
 
 router.get('/CeremoniaDelLirio',(req, res) => {
-    res.render("ceremoniaLirio");
+    res.render("ceremoniaLirio", {nombre: session.nombre});
 })
 
 router.get('/Verdacksal',(req, res) => {
-    res.render("verdacksal");
+    res.render("verdacksal", {nombre: session.nombre});
 })
 
 router.get('/Vastago',(req, res) => {
-    res.render("vastago");
+    res.render("vastago", {nombre: session.nombre});
 })
 
 router.get('/PruebasBleidaar',(req, res) => {
-    res.render("pruebas");
+    res.render("pruebas", {nombre: session.nombre});
+})
+router.get('/CerrarSesion',(req, res, next) => {
+        req.session.nombre.destroy();
+        res.redirect('/');
+        console.log(session.nombre)
 })
 
 
