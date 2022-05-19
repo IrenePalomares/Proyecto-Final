@@ -42,37 +42,37 @@ app.use(session({
     saveUninitialized: false
   }));
 
-  if (session.nombre == null) {
-    app.get("/ElegirOpciones", (req, res) => {
-        // Si no se ha iniciado sesión
-        res.status(404).render("404", {
-            titulo: 'No tienes permiso. IniciaSesion'
-        })
-    });
-    app.get("/Partida", (req, res) => {
-        // Si no se ha iniciado sesión
-            res.status(404).render("404", {
-                titulo: 'No tienes permiso. IniciaSesion'
-            })
-    });                                                          
-  } 
+//   if (session.nombre == null) {
+//     app.get("/ElegirOpciones", (req, res) => {
+//         // Si no se ha iniciado sesión
+//         res.status(404).render("404", {
+//             titulo: 'No tienes permiso. Inicia Sesion'
+//         })
+//     });
+//     app.get("/Partida", (req, res) => {
+//         // Si no se ha iniciado sesión
+//             res.status(404).render("404", {
+//                 titulo: 'No tienes permiso. Inicia Sesion'
+//             })
+//     });                                                          
+//   } 
 
-  if (session.nombre!=='Admin') {
-    app.get("/InsertarPreguntas", (req, res) => {
-        // En caso de que no sea administrador
-            res.status(404).render("404", {
-                titulo: 'No eres administrador, por lo tanto no puedes acceder a esta página'
-            })
-    });
-  }
-  if (session.nombre === 'Admin' && session.nombre !== null) {
-    app.get("/IniciarSesion", (req, res) => {
-        // Si, por ejemplo, no hay nombre
-        res.status(404).render("404", {
-            titulo: 'Ya has iniciado sesión no puedes volver a iniciarla'
-        })  
-    });
-  }
+//   if (session.nombre!=='Admin') {
+//     app.get("/InsertarPreguntas", (req, res) => {
+//         // En caso de que no sea administrador
+//             res.status(404).render("404", {
+//                 titulo: 'No eres administrador, por lo tanto no puedes acceder a esta página'
+//             })
+//     });
+//   }
+//   if (session.nombre === 'Admin' && session.nombre !== null) {
+//     app.get("/IniciarSesion", (req, res) => {
+//         // Si, por ejemplo, no hay nombre
+//         res.status(404).render("404", {
+//             titulo: 'Ya has iniciado sesión no puedes volver a iniciarla'
+//         })  
+//     });
+//   }
   
 
 //Rutas Web
