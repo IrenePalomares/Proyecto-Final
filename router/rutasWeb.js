@@ -59,7 +59,6 @@ router.get('/PruebasBleidaar',(req, res) => {
 router.get('/CerrarSesion',(req, res, next) => {
         req.session.nombre.destroy();
         res.redirect('/');
-        console.log(session.nombre)
 })
 
 
