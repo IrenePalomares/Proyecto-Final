@@ -15,8 +15,8 @@ app.use(bodyParser.json());
 require('dotenv').config();
 
 //motor de plantillas
-app.set('view engine', 'ejs');
 app.set('views',__dirname + '/views'); 
+app.set('view engine', 'ejs');
 
 app.use(cookieParser());
 
@@ -42,7 +42,7 @@ app.use(session({
     saveUninitialized: false
   }));
 
-//   if (session.nombre == null) {
+//   if (session.nombre == ) {
 //     app.get("/ElegirOpciones", (req, res) => {
 //         // Si no se ha iniciado sesión
 //         res.status(404).render("404", {
@@ -83,6 +83,7 @@ app.use('/IniciarSesion', require('./router/usuarios'));
 app.use('/Partida', require('./router/juego'));
 app.use('/ElegirOpciones', require('./router/elegir'));
 app.use('/InsertarPreguntas', require('./router/preguntas'));
+app.use('/Ranking', require('./router/paginaranking'));
 
 
 //error si el usuario intenta busacar una ruta que no se encuentra en el trivial

@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.primero {
+    color: gold;
+}
+.segundo {
+    color: silver;
+}
+.tercero {
+    color: #CD7F32;
+}

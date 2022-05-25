@@ -4,12 +4,13 @@ const session = require('express-session');
 const router = express.Router();
 const app = express();
 
-app.use('/Registrar', require('../router/usuarios'))
-app.use('/IniciarSesion', require('../router/iniciar'))
-app.use('/IniciarSesion', require('../router/usuarios'))
-app.use('/Partida', require('../router/juego'))
-app.use('/ElegirOpciones', require('../router/elegir'))
-app.use('/InsertarPreguntas', require('../router/preguntas'))
+app.use('/Registrar', require('../router/usuarios'));
+app.use('/IniciarSesion', require('../router/iniciar'));
+app.use('/IniciarSesion', require('../router/usuarios'));
+app.use('/Partida', require('../router/juego'));
+app.use('/ElegirOpciones', require('../router/elegir'));
+app.use('/InsertarPreguntas', require('../router/preguntas'));
+app.use('/Ranking', require('../router/paginaranking'));
 
 // Redireccionamiento de las rutas web
 
@@ -19,10 +20,6 @@ router.get('/', (req, res) => {
 
 router.get('/Contacto',(req, res) => {
     res.render("contacto", {nombre: session.nombre});
-})
-
-router.get('/Ranking',(req, res) => {
-    res.render("ranking", {nombre: session.nombre});
 })
 
 router.get('/PoisonDevils',(req, res) => {

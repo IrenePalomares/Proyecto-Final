@@ -21,6 +21,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <% } %>
+    <% if(error == 'error') { %>
+        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <strong class="text-center"><%= mensaje %></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
         
     <form action="/ElegirOpciones" method="POST" class="  mt-10  mt-3">
         <div class="container fnegro rounded movil">
@@ -40,9 +47,9 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
                                 <div class="form-floating mb-3">
-                                    <select name=" categorias" id=" categorias" class="form-select">
+                                    <select name="categoria" id=" categorias" class="form-select">
                                         <option value=""></option>
-                                        <option value="">Todas las categorías</option>
+                                        <option value="TC">Todas las categorías</option>
                                         <option value="V">Verdacksal</option>
                                         <option value="P">Personajes</option>
                                         <option value="PD">Posion Devils</option>
@@ -60,11 +67,11 @@
                                     <select name="numero" id="numero" class="form-select">
                                         <option value=""></option>
                                         <option value="5">5</option>
-                                        <option value="V">10</option>
-                                        <option value="P">15</option>
-                                        <option value="PD">20</option>
-                                        <option value="BR">25</option>
-                                        <option value="G">30</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
                                     </select>
                                     <label style="font-weight: bold; font-size:20px;" for="categorias">Selecciona el número de preguntas*</label>
                                 </div>
