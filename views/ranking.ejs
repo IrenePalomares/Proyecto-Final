@@ -39,7 +39,6 @@
                 <table class="table table-striped table-hover fblanco mt-2 pb-2">
                     <thead class="fondo">
                         <tr>
-                            <th scope="col"></th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Puntuación</th>
                             <th scope="col">Categoría</th>
@@ -52,16 +51,16 @@
                         <% if (ranking.length > 0) { %>
                             <% ranking.forEach(usuario => { %>
                                 <tr>
-                                    <th>
+                                    <td style="font-weight: bold;">
                                         <% if (cont === 1) { %>
                                             <i class="bi bi-trophy-fill primero" style="color: goldenrod;"></i>
                                             <% } else if (cont === 2) { %>
                                                 <i class="bi bi-trophy-fill segundo" style="color: silver;"></i>
                                             <% } else if (cont === 3) { %>
                                                 <i class="bi bi-trophy-fill tercero" style="color: #CD7F32"></i>
-                                            <% } %>    
-                                    </th>
-                                    <td style="font-weight: bold;"><%= usuario.nombre %></td>
+                                            <% } %> &nbsp
+                                        <%= usuario.nombre %>
+                                    </td>
                                     <td style="font-weight: bold;"><%= usuario.puntuacion %></td>
                                     <td style="font-weight: bold;"><%= usuario.categoria %></td>
                                     <td style="font-weight: bold;"><%= usuario.fecha %></td>
