@@ -55,7 +55,7 @@ router.post('/', [
             mensaje = `${session.nombre} has terminado la partida con ${session.puntos} puntos! Sin duda te podrías sacar un máster en cuanto a nuestros Absolutos!`;
         }
         const fecha = new Date();
-        const usuarioRanking = await Ranking.findOne({nombre:session.nombre});
+        const usuarioRanking = await Ranking.findOne({correo:session.correo});
         var fechaPartida = fecha.getDate() + '-' + (fecha.getMonth() +1) + '-' + fecha.getFullYear();
         var categoria = '';
         switch (session.categoria) {
@@ -77,28 +77,32 @@ router.post('/', [
             case 'R':
                 categoria = 'Renegados'
                 break;
-        
-            default:
-                categoría = 'Todas las Categorías'
+            case 'TC':
+                categoria = 'Todas'
                 break;
         }
+        console.log(categoria)
         const final = {
             nombre: session.nombre,
+            correo: session.correo,
             puntuacion: session.puntos,
             categoria: categoria,
             fecha: fechaPartida,
             tiempo: '00:00'
         }
-        const arrayRanking = await Ranking.find().sort({puntuacion:-1});
+        var arrayRanking = [];
         if (!usuarioRanking) {
             await Ranking.create(final);
+            arrayRanking = await Ranking.find().sort({puntuacion:-1});
             res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});
         } else if (session.puntos > usuarioRanking.puntuacion) {
             const id = usuarioRanking.id;
             const modificarRanking = await Ranking.findByIdAndUpdate(
                 id, final, { useFindAndModify:false })
+            arrayRanking = await Ranking.find().sort({puntuacion:-1});
             res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});
         } else {
+            arrayRanking = await Ranking.find().sort({puntuacion:-1});
             res.render("ranking", {error:'success', mensaje: `Te hemos mantenido tu mejor puntuación ${session.nombre} ${usuarioRanking.puntuacion} puntos, en esta partida has conseguido ${session.puntos}!`, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});
         }
     }

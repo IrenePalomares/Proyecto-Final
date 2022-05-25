@@ -43,13 +43,13 @@ router.post('/', [
                 if (body.contrasena == password) {
                     const sesionUsuario = usuario;
                     session.nombre = sesionUsuario;
+                    session.correo = arrayUsuario.correo;
                       console.log(session.nombre);
                     res.render('eleccion', { nombre: session.nombre, mensaje: mensaje.correcto, error: 'success' });
                 } else {
                     res.render('iniciarSesion', { mensaje: mensaje.errorPassword, error: 'error', nombre: session.nombre })
                 }
         }
-        // res.render('iniciarSesion', {arrayUsuario: arrayUsuario, error:'hola', nombre: session.nombre});
     }
 });
 

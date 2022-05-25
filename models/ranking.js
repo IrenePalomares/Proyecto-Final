@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const sesionSchema = new Schema({
     nombre: String,
+    correo:String,
     puntuacion: Number,
     categoria: String,
     fecha: String,
