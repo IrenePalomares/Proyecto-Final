@@ -215,10 +215,10 @@ th{
     }
     table {
         font-size: 10px;
-        width: 90%;
+        width: 100%;
     }
     th{
-        font-size: 12px;
+        font-size: 11px;
     }
 }
 
