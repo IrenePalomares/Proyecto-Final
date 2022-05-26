@@ -1,4 +1,4 @@
-<%- include('template/cabecera') %>
+<%- include('template/cabeceraScroll') %>
 
 <body class="fondo p-0">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -13,7 +13,7 @@
         </symbol>
     </svg>
     <% if(error == 'success') { %>
-        <div class="alert alert-success alert-dismissible fade show mt-3 mb-0" role="alert">
+        <div class="alert alert-success alert-dismissible fade w-100 show mt-3 mb-0" role="alert">
             
             <p class="m-0"><svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                 <strong class="text-center"><%= mensaje %></strong> 
@@ -22,13 +22,13 @@
         </div>
     <% } %>
     <% if(error == 'error') { %>
-        <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+        <div class="alert alert-danger alert-dismissible fade w-100 show mt-3" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
             <strong class="text-center"><%= mensaje %></strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <% } %>
-    <div class="container p-0 blanco mt-3 movil">
+    <div class="container p-0 blanco mt-3 mb-3 movil">
         <div class="row fnegro blanco rounded-top w-100 m-0">
             <div class="col-lg-12 col-md-12 p-0 text-center">
                 <h1>RANKING LOS ABSOLUTOS</h1>

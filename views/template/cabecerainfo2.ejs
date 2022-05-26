@@ -45,32 +45,31 @@
     .container{
         opacity: 0.9;
     }
+    body{
+        overflow-y: hidden;
+    }
+    @media screen and (max-width:991px) {
+        body{
+            overflow-y: scroll;
+        }
+    }
     *{
         margin: 0;
         padding: 0;
     }
-    .contenedor{
-        width: 100%;
-        height: 100vh;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
 </style>
-<div class="contenedor">
-    <header>
-        <div class="container-fluid p-0">
+<body class="contenedor p-0 m-0 fondo">
+    <header class="container-fluid p-0">
             <% if(nombre == null) { %>
-                <div class="row w-100 m-0 pt-2 pb-2 fblanco">
+                <div class="row w-100 m-0 pt-2 pb-2 fblanco cabecera">
                     <div class="col-12 d-none d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none flex-row justify-content-evenly align-items-center p-0">
-                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
+                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                         <button id="inicio" class="btn fblanco negro" style="font-weight: bold;">Inicio</button>
                         <button id="iniciars" class="btn fblanco negro" style="font-weight: bold;">Iniciar Sesión</button>
                         <button id="registrar" class="btn fblanco negro" style="font-weight: bold;">Registrar</button>
                         <button id="ranking" class="btn fblanco negro" style="font-weight: bold;">Ranking</button>
                         <button id="contacto" class="btn fblanco negro" style="font-weight: bold;">Contacto</button>
-                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
+                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                     </div>
                     <div class="col-12 d-xxl-none d-xl-none d-lg-none d-flex flex-row justify-content-around align-items-center p-0">
                         <div class="row w-100 m-0">
@@ -100,7 +99,7 @@
                     </div>
                 </div>
             <% } else if (nombre!=='Admin') { %>
-                <div class="row w-100 m-0 pt-2 pb-2 fblanco">
+                <div class="row w-100 m-0 pt-2 pb-2 fblanco cabecera">
                     <div class="col-12 d-none d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none flex-row justify-content-evenly align-items-center p-0">
                         <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
                         <button id="inicio" class="btn fblanco negro" style="font-weight: bold;">Inicio</button>
@@ -138,7 +137,7 @@
                     </div>
                 </div>
             <% } else if (nombre==='Admin') { %>
-                <div class="row w-100 m-0 pt-2 pb-2 fblanco">
+                <div class="row w-100 m-0 pt-2 pb-2 fblanco cabecera">
                     <div class="col-12 d-none d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none flex-row justify-content-evenly align-items-center p-0">
                         <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
                         <button id="inicio" class="btn fblanco negro" style="font-weight: bold;">Inicio</button>
@@ -176,5 +175,4 @@
                     </div>
                 </div>
             <% } %>
-        </div>
     </header>

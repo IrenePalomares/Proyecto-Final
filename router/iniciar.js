@@ -24,8 +24,7 @@ router.post('/', [
         .isStrongPassword()
 ], async(req, res) => {
     const errors = validationResult(req);
-    const mensaje = { correcto: `${usuario}, acabas de acceder a nuestro Trivial ¿preparado para jugar?`, errorPassword: 'La contraseña es incorrecta Absoluto, asegúrate de que es con la que te registraste.', 
-                            notFound: 'Absoluto, nuestros rastreadores no encuentran tu usuario. Comprueba que lo has escrito correctamente.' };
+    var mensaje = [];
     if(!errors.isEmpty()){
         const valores = req.body;
         const validaciones = errors.array();
@@ -36,15 +35,19 @@ router.post('/', [
         const arrayUsuario = await Session.findOne({correo:body.usuario});
 
         if (!arrayUsuario) {
+            mensaje = {errorPassword: 'La contraseña es incorrecta Absoluto, asegúrate de que es con la que te registraste.', 
+            notFound: 'Absoluto, nuestros rastreadores no encuentran tu usuario. Comprueba que lo has escrito correctamente.' };
             res.render('iniciarSesion', { mensaje: mensaje.notFound, error: 'error', nombre: session.nombre });
         } else {
+            
                 var password = CryptoJS.AES.decrypt(arrayUsuario.contrasena,process.env.KEY).toString(CryptoJS.enc.Utf8);
                 var usuario = CryptoJS.AES.decrypt(arrayUsuario.usuario,process.env.KEY).toString(CryptoJS.enc.Utf8);
                 if (body.contrasena == password) {
                     const sesionUsuario = usuario;
                     session.nombre = sesionUsuario;
                     session.correo = arrayUsuario.correo;
-                      console.log(session.nombre);
+                    console.log(session.nombre);
+                    mensaje = { correcto: `${usuario}, acabas de acceder a nuestro Trivial ¿preparado para jugar?`};
                     res.render('eleccion', { nombre: session.nombre, mensaje: mensaje.correcto, error: 'success' });
                 } else {
                     res.render('iniciarSesion', { mensaje: mensaje.errorPassword, error: 'error', nombre: session.nombre })
