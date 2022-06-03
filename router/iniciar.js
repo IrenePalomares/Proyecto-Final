@@ -39,7 +39,6 @@ router.post('/', [
             notFound: 'Absoluto, nuestros rastreadores no encuentran tu usuario. Comprueba que lo has escrito correctamente.' };
             res.render('iniciarSesion', { mensaje: mensaje.notFound, error: 'error', nombre: session.nombre });
         } else {
-            
                 var password = CryptoJS.AES.decrypt(arrayUsuario.contrasena,process.env.KEY).toString(CryptoJS.enc.Utf8);
                 var usuario = CryptoJS.AES.decrypt(arrayUsuario.usuario,process.env.KEY).toString(CryptoJS.enc.Utf8);
                 if (body.contrasena == password) {

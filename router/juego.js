@@ -7,6 +7,25 @@ const Ranking = require('../models/ranking');
 const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
+    var totalSeconds = 0;
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var myInterval = setInterval(setTime, 1000);
+        
+    function setTime() {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    }
+        
+    function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+            return "0" + valString;
+        } else {
+            return valString;
+        }
+    }
     session.preguntas = [];
     session.jugadas = 0;
     session.numero = 0;
@@ -91,7 +110,7 @@ router.post('/', [
             tiempo: '00:00'
         }
         var arrayRanking = [];
-        if (!usuarioRanking) {
+        if (!usuarioRanking && session.nombre!=undefined) {
             await Ranking.create(final);
             arrayRanking = await Ranking.find().sort({puntuacion:-1});
             res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});

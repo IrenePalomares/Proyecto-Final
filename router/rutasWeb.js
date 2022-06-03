@@ -11,6 +11,8 @@ app.use('/Partida', require('../router/juego'));
 app.use('/ElegirOpciones', require('../router/elegir'));
 app.use('/InsertarPreguntas', require('../router/preguntas'));
 app.use('/Ranking', require('../router/paginaranking'));
+// app.use('/ComprobarCorreo', require('../router/comprobarCorreo'))
+// app.use('/CambiarContrasenia', require('../router/cambiarContrasenia'))
 
 // Redireccionamiento de las rutas web
 
@@ -54,8 +56,7 @@ router.get('/PruebasBleidaar',(req, res) => {
     res.render("pruebas", {nombre: session.nombre});
 })
 router.get('/CerrarSesion',(req, res, next) => {
-        // req.session.destroy();
-        session.nombre = null;
+        session.nombre = undefined;
         res.redirect('/');
 })
 

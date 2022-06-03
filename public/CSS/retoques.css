@@ -68,6 +68,19 @@ h5{
     height: 40px;
     font-size: 18px;
 }
+#cambiar:hover{
+    background-color: #294012;
+    border: solid 1px #F2F2F2 ;
+    color: #F2F2F2;
+    font-weight: bold;
+}
+
+#cambiar{
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+}
 #enviar:hover{
     background-color: #294012;
     border: solid 1px #F2F2F2 ;

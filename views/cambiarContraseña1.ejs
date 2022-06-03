@@ -38,7 +38,7 @@
         </div>
     <% } %>
         
-    <form action="/IniciarSesion" method="POST" class="mt-3 mb-3">
+    <form action="/ComprobarCorreo" method="POST" class="mt-3 mb-3">
         <div class="container fnegro rounded movil">
             <div class="row fblanco negro rounded-top">
                 <div class="col-lg-12 col-md-12 rounded p-0 text-center">
@@ -48,14 +48,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 d-none d-lg-flex d-md-flex p-0 rounded-left d-flex jusify-content-center align-self-stretch">
                     <div class="row">
-                        <img  class="rounded-left" src="/IMG/fondo.jpg" alt="">
+                        <img  class="rounded-left" src="/IMG/contraseña.jpg" alt="">
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0 d-flex flex-column justify-content-evenly">
                     <div class="row p-0 text-center mt-4">
                         <div class="col-12 t blanco">
-                            <h1>¡Inicia Sesión!</h1>
+                            <h1>Introduce tu correo electrónico para cambiar la contraseña.</h1>
                         </div>
                     </div>
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
@@ -67,24 +67,9 @@
                         </div>
                     </div>
 
-                    <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
-                            <div class="col-11">
-                                <div class="form-floating">
-                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
-                                    <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
-                                </div>
-                            </div>
-                    </div>
-
-                    <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
-                            <div class="col-11">
-                                <a href="/ComprobarCorreo" class="blanco" style="font-weight: bold; text-decoration: none;">¿Has olvidado tu contraseña?</a>
-                            </div>
-                    </div>
-
                     <div class="row mb-4 mt-4">
                         <div class="col-12 d-flex justify-content-center">
-                            <button id="iniciarsesion" class="btn fondo negro" style="font-weight: bold;">Iniciar Sesión</button>
+                            <button id="cambiar" class="btn fondo negro" style="font-weight: bold;">Cambiar</button>
                         </div>
                     </div>
                 </div>

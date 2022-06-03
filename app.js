@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-
+console.log(session.nombre)
 //aplicadción para recoger información formulario 
 app.use(bodyParser.urlencoded({ extended: false }));
 //aplicación para información json
@@ -42,7 +42,7 @@ app.use(session({
     saveUninitialized: false
   }));
 
-  if (session.nombre == null) {
+  if (session.nombre === undefined) {
     app.get("/ElegirOpciones", (req, res) => {
         // Si no se ha iniciado sesión
         res.status(404).render("404", {
@@ -55,7 +55,8 @@ app.use(session({
                 titulo: 'No tienes permiso. Inicia Sesion'
             })
     });                                                          
-  } else if (session.nombre!='Admin') {
+  } 
+  if (session.nombre!==undefined) {
     console.log('hola')
     app.get("/IniciarSesion", (req, res) => {
         // Si, por ejemplo, no hay nombre
@@ -65,8 +66,9 @@ app.use(session({
     });
   }
 
-  if (session.nombre!='Admin') {
+  if (session.nombre!=='Admin') {
     app.get("/InsertarPreguntas", (req, res) => {
+        console.log('hola')
         // En caso de que no sea administrador
             res.status(404).render("404", {
                 titulo: 'No eres administrador, por lo tanto no puedes acceder a esta página'
@@ -84,12 +86,14 @@ app.use('/Partida', require('./router/juego'));
 app.use('/ElegirOpciones', require('./router/elegir'));
 app.use('/InsertarPreguntas', require('./router/preguntas'));
 app.use('/Ranking', require('./router/paginaranking'));
+app.use('/ComprobarCorreo', require('./router/comprobarCorreo'));
+app.use('/CambiarContrasenia', require('./router/cambiarContrasenia'));
 
 
 //error si el usuario intenta busacar una ruta que no se encuentra en el trivial
 app.use((req, res, next) => {
     res.status(404).render("404", {
-        titulo: '¿TE HAS PERDIDO? ¿Qué estabas buscando ehh?'
+        titulo: '¿TE HAS PERDIDO? ¿Qué estabas buscando ehh?', nombre: session.nombre
     })
 })
 
