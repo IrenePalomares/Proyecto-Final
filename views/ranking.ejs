@@ -42,8 +42,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Puntuación</th>
                             <th scope="col">Categoría</th>
-                            <th class="d-none" scope="col">Fecha</th>
-                            <th scope="col">Tiempo</th>
+                            <th class="col" scope="col">Fecha</th>
+                            <!-- <th scope="d-none">Tiempo</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -63,8 +63,8 @@
                                     </td>
                                     <td style="font-weight: bold;"><%= usuario.puntuacion %></td>
                                     <td style="font-weight: bold;"><%= usuario.categoria %></td>
-                                    <td class="d-none" style="font-weight: bold;"><%= usuario.fecha %></td>
-                                    <td style="font-weight: bold;"><%= usuario.tiempo %></td>
+                                    <!-- <td class="d-none" style="font-weight: bold;"><%= usuario.fecha %></td> -->
+                                    <td style="font-weight: bold;"><%= usuario.fecha %></td>
                                 </tr>
                                 <% cont ++ %>
                             <%    }) %>

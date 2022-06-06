@@ -7,37 +7,56 @@ const Ranking = require('../models/ranking');
 const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
-    var totalSeconds = 0;
-    var minutesLabel = document.getElementById("minutes");
-    var secondsLabel = document.getElementById("seconds");
-    var myInterval = setInterval(setTime, 1000);
-        
-    function setTime() {
-        ++totalSeconds;
-        secondsLabel.innerHTML = pad(totalSeconds % 60);
-        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    if (!session.nombre) {
+        res.status(403).render('403', {
+            titulo: 'No tienes permiso. Inicia Sesion',
+            nombre:session.nombre
+        })
+    } else if (!session.categoria || !session.numero) {
+        res.status(404).render("404", {
+            titulo: 'Antes de jugar tienes que seleccionar la categoría y el número de preguntas que tendrá la partida'
+        })
+    } else {
+        session.preguntas = [];
+        session.jugadas = 0;
+        session.numero = 0;
+        session.puntos = session.puntos + 200;
+        res.render('partida', {mensaje:'hola', error:'no hay error', nombre:'Absoluto', categoria:session.preguntas[session.jugadas].Categoria, preguntas: body.numero, Pregunta: session.preguntas[session.jugadas], puntuacion:session.puntos, tiempo:'0:00'})
     }
-        
-    function pad(val) {
-        var valString = val + "";
-        if (valString.length < 2) {
-            return "0" + valString;
-        } else {
-            return valString;
-        }
-    }
-    session.preguntas = [];
-    session.jugadas = 0;
-    session.numero = 0;
-    session.puntos = session.puntos + 200;
-    res.render('partida', {mensaje:'hola', error:'no hay error', nombre:'Absoluto', categoria:session.preguntas[session.jugadas].Categoria, preguntas: body.numero, Pregunta: session.preguntas[session.jugadas], puntuacion:session.puntos})
 });
 
 router.post('/', [
     
 ], async(req, res) => {
     const body = req.body;
-    console.log(body);
+    // var sec = 0;
+    // var min = 0;
+    // var hrs = 0;
+    // var t;
+    // function tick(){
+    //     // sec++;
+    //     if (sec >= 60) {
+    //         sec = 0;
+    //         min++;
+    //         if (min >= 60) {
+    //             min = 0;
+    //             hrs++;
+    //         }
+    //     }
+    // }
+    // function add() {
+    //     tick();
+    //     textContent = (hrs > 9 ? hrs : "0" + hrs) 
+    //              + ":" + (min > 9 ? min : "0" + min)
+    //                 + ":" + (sec > 9 ? sec : "0" + sec);
+    //     timer();
+    // }
+    // function timer() {
+    //     t = setTimeout(add(), 1000);
+    // }
+    
+    // // var time = timer();
+    // console.log(timer());
     if (session.jugadas < session.numero-1){
         var correcta = '';
         if (session.jugadas===0) {
@@ -46,12 +65,9 @@ router.post('/', [
             correcta = session.preguntas[session.jugadas].Correcta
         }
         session.jugadas ++;
-        console.log(correcta)
         if ((body.respuesta === correcta)) {
             session.racha ++;
-            console.log(session.racha)
             session.puntos = session.puntos + (200 * session.racha);
-            console.log(session.puntos)
             var mensaje = `Muy bien ${session.nombre}! Has hacertado la pregunta`;
             res.render("partida", {error:'success', mensaje:mensaje, nombre: session.nombre, Pregunta: session.preguntas[session.jugadas], categoria: session.preguntas[session.jugadas].Categoria, puntuacion: session.puntos});
         } else {
@@ -100,29 +116,28 @@ router.post('/', [
                 categoria = 'Todas'
                 break;
         }
-        console.log(categoria)
         const final = {
             nombre: session.nombre,
             correo: session.correo,
             puntuacion: session.puntos,
             categoria: categoria,
             fecha: fechaPartida,
-            tiempo: '00:00'
+    
         }
         var arrayRanking = [];
         if (!usuarioRanking && session.nombre!=undefined) {
             await Ranking.create(final);
             arrayRanking = await Ranking.find().sort({puntuacion:-1});
-            res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});
+            res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking, time:0});
         } else if (session.puntos > usuarioRanking.puntuacion) {
             const id = usuarioRanking.id;
             const modificarRanking = await Ranking.findByIdAndUpdate(
                 id, final, { useFindAndModify:false })
             arrayRanking = await Ranking.find().sort({puntuacion:-1});
-            res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});
+            res.render("ranking", {error:'succes', mensaje: mensaje, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking, time:0});
         } else {
             arrayRanking = await Ranking.find().sort({puntuacion:-1});
-            res.render("ranking", {error:'success', mensaje: `Te hemos mantenido tu mejor puntuación ${session.nombre} ${usuarioRanking.puntuacion} puntos, en esta partida has conseguido ${session.puntos}!`, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking});
+            res.render("ranking", {error:'success', mensaje: `Te hemos mantenido tu mejor puntuación ${session.nombre} ${usuarioRanking.puntuacion} puntos, en esta partida has conseguido ${session.puntos}!`, nombre: session.nombre, error:'success', puntuacion:session.puntos, ranking:arrayRanking, time:0});
         }
     }
 });

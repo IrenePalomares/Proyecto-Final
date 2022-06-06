@@ -105,6 +105,18 @@ h5{
     height: 40px;
     font-size: 18px;
 }
+#finalizar:hover{
+    background-color: #294012;
+    border: solid 1px #F2F2F2 ;
+    color: #F2F2F2;
+    font-weight: bold;
+}
+#finalizar{
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+}
 
 /* submenu ranking */
 .b.col-11.rounded-3.text-center{

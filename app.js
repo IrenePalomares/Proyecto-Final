@@ -2,11 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-// const flash =require('connect-flash');
 
 const app = express();
 
-console.log(session.nombre)
+
 //aplicadción para recoger información formulario 
 app.use(bodyParser.urlencoded({ extended: false }));
 //aplicación para información json
@@ -41,41 +40,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
   }));
-
-  if (session.nombre === undefined) {
-    app.get("/ElegirOpciones", (req, res) => {
-        // Si no se ha iniciado sesión
-        res.status(404).render("404", {
-            titulo: 'No tienes permiso. Inicia Sesion'
-        })
-    });
-    app.get("/Partida", (req, res) => {
-        // Si no se ha iniciado sesión
-            res.status(404).render("404", {
-                titulo: 'No tienes permiso. Inicia Sesion'
-            })
-    });                                                          
-  } 
-  if (session.nombre!==undefined) {
-    console.log('hola')
-    app.get("/IniciarSesion", (req, res) => {
-        // Si, por ejemplo, no hay nombre
-        res.status(404).render("404", {
-            titulo: 'Ya has iniciado sesión no puedes volver a iniciarla'
-        })  
-    });
-  }
-
-  if (session.nombre!=='Admin') {
-    app.get("/InsertarPreguntas", (req, res) => {
-        console.log('hola')
-        // En caso de que no sea administrador
-            res.status(404).render("404", {
-                titulo: 'No eres administrador, por lo tanto no puedes acceder a esta página'
-            })
-    });
-  }
-  
+  console.log(session.nombre);
 
 //Rutas Web
 app.use('/', require('./router/rutasWeb'));
@@ -94,6 +59,11 @@ app.use('/CambiarContrasenia', require('./router/cambiarContrasenia'));
 app.use((req, res, next) => {
     res.status(404).render("404", {
         titulo: '¿TE HAS PERDIDO? ¿Qué estabas buscando ehh?', nombre: session.nombre
+    })
+})
+app.use((req, res, next) => {
+    res.status(403).render('403', {
+        nombre:session.nombre
     })
 })
 

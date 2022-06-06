@@ -6,7 +6,15 @@ const Pregunta = require('../models/questions');
 const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
-    res.render('insertarPreguntas', {error:'hola', nombre: session.nombre});
+    if (session.nombre === 'Admin') {
+        res.render('insertarPreguntas', {error:'hola', nombre: session.nombre});
+    } else {
+        res.status(403).render('403', {
+            titulo: 'No eres administrador, por lo tanto no puedes acceder a esta página. Nuestros rastreadores lo tienen todo controlado',
+            nombre:session.nombre
+        })
+    }
+   
 });
 
 router.post('/', [

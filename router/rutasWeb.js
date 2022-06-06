@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const router = express.Router();
 const app = express();
+// const swal = require('sweetalert2');
 
 app.use('/Registrar', require('../router/usuarios'));
 app.use('/IniciarSesion', require('../router/iniciar'));
@@ -59,6 +60,24 @@ router.get('/CerrarSesion',(req, res, next) => {
         session.nombre = undefined;
         res.redirect('/');
 })
+// router.get('/FinalizarPartida',(req, res, next) => {
+//     swal({
+//         title: "Estás seguro de que quieres terminar?",
+//         text: `${session.nombre} no se va a guardar la puntuación!`,
+//         icon: "warning",
+//         buttons: true,
+//         dangerMode: true,
+//       }).then((willDelete) => {
+//         if (willDelete) {
+//           swal("Ya has finalizado la partida, te redirigiremos a la página de inicio", {
+//             icon: "success",
+//           });
+//           res.redirect('/');
+//         } else {
+//           swal(`Uf ${session.nombre}, por los pelos... Puedes seguir jugando!`);
+//         }
+//       });
+// })
 
 
 module.exports = router;

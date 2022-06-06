@@ -8,9 +8,17 @@ const { Session } = require("express-session");
 
 
 router.get('/', async(req, res) =>{
-    res.render("eleccion", 
-    {error:'hola',
-    nombre: session.nombre});
+    if (!session.nombre) {
+        res.status(403).render('403', {
+            titulo: 'No tienes permiso. Inicia Sesion',
+            nombre:session.nombre
+        })
+    } else {
+        res.render("eleccion", 
+        {error:'hola',
+        nombre: session.nombre});
+    }
+   
 });
 
 router.post('/',
@@ -25,6 +33,7 @@ router.post('/',
 , async(req, res) => {
         const body = req.body;
         var arrayPreguntas = [];
+        
         if (body.categoria !=='' && body.numero !=='') {
             switch (body.categoria) {
                 case 'TC':
@@ -45,7 +54,7 @@ router.post('/',
                 session.jugadas = 0;
                 session.puntos = 0;
                 session.racha = 0;
-                res.render('partida', {mensaje:'hola', error:'no hay error', nombre:session.nombre, categoria:session.preguntas[session.jugadas].Categoria, preguntas: body.numero, Pregunta: session.preguntas[session.jugadas], puntuacion:session.puntos})
+                res.render('partida', {mensaje:'hola', error:'no hay error', nombre:session.nombre, categoria:session.preguntas[session.jugadas].Categoria, preguntas: body.numero, Pregunta: session.preguntas[session.jugadas], puntuacion:session.puntos, tiempo:0})
             }
         } 
         else {

@@ -6,7 +6,15 @@ const Usuario = require('../models/register');
 const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
-    res.render("registrar", {error:'hola', nombre: session.nombre});
+    if (!session.nombre) {
+        res.render("registrar", {error:'hola', nombre: session.nombre});
+    }
+    else {
+        res.status(403).render('403', {
+            titulo: 'Ya tienes un usuario Absoluto, no puedes volver a registrarte. No te pases de listillo ;)',
+            nombre:session.nombre
+        })
+    }
 });
 
 router.post('/', [

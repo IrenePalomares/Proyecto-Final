@@ -9,6 +9,26 @@ btnRanking = document.getElementById('ranking');
 btnContacto = document.getElementById('contacto');
 btnJugar = document.getElementById('jugar');
 btnCerrar = document.getElementById('cerrar')
+btnFinalizar = document.getElementById('finalizar')
+
+const finalizar = () => {
+    swal({
+        title: "Estás seguro de que quieres terminar?",
+        text: `${session.nombre} no se va a guardar la puntuación!`,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal("Ya has finalizado la partida, te redirigiremos a la página de inicio", {
+            icon: "success",
+          });
+          res.redirect('/');
+        } else {
+          swal(`Uf ${session.nombre}, por los pelos... Puedes seguir jugando!`);
+        }
+      });
+}
 
 const menu = () => {
     btnInicio.addEventListener("click", function() {
@@ -33,6 +53,9 @@ const menu = () => {
             window.location.href="ElegirOpciones";
         });
     }
+    // btnFinalizar.addEventListener("click", function(){
+    //     finalizar();
+    // });
 }
 menu();
 
