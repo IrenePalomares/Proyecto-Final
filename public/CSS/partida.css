@@ -8,6 +8,7 @@ body{
     background-image: url("../IMG/fondo1.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
+    background-position: center;
     overflow-x: hidden;
 }
 h1{
@@ -60,6 +61,7 @@ button.btn.fnegro:hover{
         background-image: url("../IMG/fondomovil.jpg");
         background-repeat: no-repeat;
         background-size: auto;
+        background-position: center;
         background-attachment: fixed;
     }
     
