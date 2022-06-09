@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 
-
 //aplicadción para recoger información formulario 
 app.use(bodyParser.urlencoded({ extended: false }));
 //aplicación para información json
@@ -19,8 +18,6 @@ app.set('view engine', 'ejs');
 
 app.use(cookieParser());
 
-const port = process.env.PORT || 3000;
-
 //Conexión a base de datos Trivial
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.kwbpr.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`;
 
@@ -31,6 +28,8 @@ const mongoose = require('mongoose');
 .then(() => console.log('Base de datos conectada'))
 .catch(e => console.log(e))
 
+const port = process.env.PORT || 3000;
+
 //ruta estática
 app.use(express.static(__dirname + "/public"));
 
@@ -40,7 +39,6 @@ app.use(session({
     resave: false,
     saveUninitialized: false
   }));
-  console.log(session.nombre);
 
 //Rutas Web
 app.use('/', require('./router/rutasWeb'));
@@ -53,6 +51,7 @@ app.use('/InsertarPreguntas', require('./router/preguntas'));
 app.use('/Ranking', require('./router/paginaranking'));
 app.use('/ComprobarCorreo', require('./router/comprobarCorreo'));
 app.use('/CambiarContrasenia', require('./router/cambiarContrasenia'));
+app.use('/Contacto', require('./router/contacto'));
 
 
 //error si el usuario intenta busacar una ruta que no se encuentra en el trivial
@@ -61,12 +60,12 @@ app.use((req, res, next) => {
         titulo: '¿TE HAS PERDIDO? ¿Qué estabas buscando ehh?', nombre: session.nombre
     })
 })
+
 app.use((req, res, next) => {
     res.status(403).render('403', {
         nombre:session.nombre
     })
 })
-
 
 app.listen(port, () => {
     console.log(`escuchando solicitudes http://localhost:${port}`);

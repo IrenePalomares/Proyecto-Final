@@ -7,12 +7,16 @@ body{
     font-family: 'Montserrat Alternates';
     overflow-x: hidden;
 }
-#inicio,#iniciars,#registrar,#ranking,#contacto,#jugar,#cerrar{
+#inicio,#iniciars,#registrar,#ranking,#contacto,#jugar,#cerrar,#nombre,#preguntas{
     font-weight: bold;
     font-size: 20px;
 }
 pie{
     height: 59px;
+}
+#contenedorTabla{
+    height: 310px;
+    overflow: auto;
 }
 .contenedor {
     width: 100%;

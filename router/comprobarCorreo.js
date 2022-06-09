@@ -14,16 +14,15 @@ router.get('/', async(req, res) =>{
 
 router.post('/', async(req, res) => {
     const body = req.body;
+    
     const arrayUsuario = await Session.findOne({correo:body.usuario});
+
+    session.cambiarContrasenia = arrayUsuario;
+
     var mensaje = '';
     session.correo = arrayUsuario.correo;
-    if (!arrayUsuario) {
-        mensaje = 'Absoluto, nuestros rastreadores no encuentran tu usuario. Comprueba que lo has escrito correctamente.';
-        res.render('cambiarContraseña1', { mensaje: mensaje, error: 'error', nombre: session.nombre });
-    } else {
         mensaje = `Genial Absoluto, si este es tu correo ${arrayUsuario.correo} a continuacíon podrás cambiar la contraseña de tu usuario. Felipe se encargará de el resto ;)`;
         res.render('cambiarContraseña2', { mensaje: mensaje, error:'success', correo: session.correo, nombre: session.nombre});
-    }
 });
 
 module.exports = router;

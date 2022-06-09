@@ -8,13 +8,17 @@ const { body, validationResult } = require('express-validator');
 
 router.get('/', async(req, res) =>{
     if (!session.nombre) {
+        //Error 403 que le salta al usuario en caso de que no haya iniciado sesión
         res.status(403).render('403', {
             titulo: 'No tienes permiso. Inicia Sesion',
             nombre:session.nombre
         })
     } else if (!session.categoria || !session.numero) {
-        res.status(404).render("404", {
-            titulo: 'Antes de jugar tienes que seleccionar la categoría y el número de preguntas que tendrá la partida'
+        /*En cambio este Error 403 le salta al usuario en caso de que no haya hecho la selección de la categoría y las preguntas para 
+        jugar el trivial */
+        res.status(403).render('403', {
+            titulo: 'Antes de jugar tienes que seleccionar la categoría y el número de preguntas que tendrá la partida',
+            nombre:session.nombre
         })
     } else {
         session.preguntas = [];
@@ -29,34 +33,7 @@ router.post('/', [
     
 ], async(req, res) => {
     const body = req.body;
-    // var sec = 0;
-    // var min = 0;
-    // var hrs = 0;
-    // var t;
-    // function tick(){
-    //     // sec++;
-    //     if (sec >= 60) {
-    //         sec = 0;
-    //         min++;
-    //         if (min >= 60) {
-    //             min = 0;
-    //             hrs++;
-    //         }
-    //     }
-    // }
-    // function add() {
-    //     tick();
-    //     textContent = (hrs > 9 ? hrs : "0" + hrs) 
-    //              + ":" + (min > 9 ? min : "0" + min)
-    //                 + ":" + (sec > 9 ? sec : "0" + sec);
-    //     timer();
-    // }
-    // function timer() {
-    //     t = setTimeout(add(), 1000);
-    // }
     
-    // // var time = timer();
-    // console.log(timer());
     if (session.jugadas < session.numero-1){
         var correcta = '';
         if (session.jugadas===0) {
@@ -89,6 +66,7 @@ router.post('/', [
         } else if (session.puntos >= 30000) {
             mensaje = `${session.nombre} has terminado la partida con ${session.puntos} puntos! Sin duda te podrías sacar un máster en cuanto a nuestros Absolutos!`;
         }
+
         const fecha = new Date();
         const usuarioRanking = await Ranking.findOne({correo:session.correo});
         var fechaPartida = fecha.getDate() + '-' + (fecha.getMonth() +1) + '-' + fecha.getFullYear();
@@ -121,8 +99,7 @@ router.post('/', [
             correo: session.correo,
             puntuacion: session.puntos,
             categoria: categoria,
-            fecha: fechaPartida,
-    
+            fecha: fechaPartida
         }
         var arrayRanking = [];
         if (!usuarioRanking && session.nombre!=undefined) {

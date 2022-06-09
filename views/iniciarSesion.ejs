@@ -61,7 +61,7 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-4">
                         <div class="col-11">
                             <div class="form-floating">
-                                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador" value="<% if(typeof valores != 'undefined') { %><%= valores.usuario %><% } %>">
+                                <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Nombre Jugador" value="<%= correo %>">
                                 <label for="usuario" style="font-weight: bold;">Correo Electrónico*</label>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                     <div class="row d-flex flex-column align-items-center justify-content-center mt-3">
                             <div class="col-11">
                                 <div class="form-floating">
-                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña" value="<% if(typeof valores != 'undefined') { %><%= valores.contrasena %><% } %>">
+                                    <input type="password" name="contrasena" id="contraseña" class="form-control" placeholder="Contraseña">
                                     <label for="contraseña" style="font-weight: bold;">Contraseña*</label>
                                 </div>
                             </div>

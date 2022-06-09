@@ -47,6 +47,7 @@ router.post('/', [
         try {
             const mensaje = {correcto: `La pregunta se ha introducido correctamente`, error: 'No se ha podido insertar la pregunta en nuestra BD'}
             if (body.contrasena == body.confirmar) {
+
                 await Pregunta.create(body);
                 
                 res.render('insertarPreguntas', {mensaje: mensaje.correcto, error: 'success', nombre:session.nombre});

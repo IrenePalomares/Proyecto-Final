@@ -109,6 +109,7 @@
                         <button id="ranking" class="btn fblanco negro" style="font-weight: bold;">Ranking</button>
                         <button id="contacto" class="btn fblanco negro" style="font-weight: bold;">Contacto</button>
                         <a id="cerrar" href='/CerrarSesion' class="btn fblanco negro" style="font-weight: bold;">Cerrar Sesión</a>
+                        <button id="nombre" class="btn fblanco negro d-flex flex-row align-items-center" style="font-weight: bold;"><i class="bi bi-person-circle"></i>&nbsp<%= nombre %></button>
                         <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                     </div>
                     <div class="col-12 d-xxl-none d-xl-none d-lg-none d-flex flex-row justify-content-around align-items-center p-0">
@@ -117,6 +118,9 @@
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
                                     <a class="navbar-brand" href="/"><img src="../IMG/logo.png" alt="" style="width: 40px; height: 40px;"></a>
+                                    <div id="nombre">
+                                        <i class="bi bi-person-circle"></i>&nbsp<%= nombre %>
+                                    </div>
                                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="toggler-icon top-bar"></span>
@@ -145,8 +149,11 @@
                         <button id="inicio" class="btn fblanco negro" style="font-weight: bold;">Inicio</button>
                         <button id="jugar" class="btn fblanco negro" style="font-weight: bold;">Jugar</button>
                         <button id="ranking" class="btn fblanco negro" style="font-weight: bold;">Ranking</button>
+                        <button id="preguntas" class="btn fblanco negro" style="font-weight: bold;">Insertar Preguntas</button>
                         <button id="contacto" class="btn fblanco negro" style="font-weight: bold;">Contacto</button>
                         <a id="cerrar" href='/CerrarSesion' class="btn fblanco negro" style="font-weight: bold;">Cerrar Sesión</a>
+                        <button id="nombre" class="btn fblanco negro d-flex flex-row align-items-center" style="font-weight: bold;"><i class="bi bi-robot"></i>&nbsp<%= nombre %></button>
+                        
                         <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                     </div>
                     <div class="col-12 d-xxl-none d-xl-none d-lg-none d-flex flex-row justify-content-around align-items-center p-0">
@@ -155,6 +162,9 @@
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
                                     <a class="navbar-brand" href="/"><img src="../IMG/logo.png" alt="" style="width: 40px; height: 40px;"></a>
+                                    <div id="nombre">
+                                        <i class="bi bi-robot"></i>&nbsp<%= nombre %>
+                                    </div>
                                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="toggler-icon top-bar"></span>
@@ -165,7 +175,8 @@
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/" style="font-weight: bold;">Inicio</a></li>
                                             <li class="nav-item"><a class="nav-link" aria-current="page" href="/ElegirOpciones" style="font-weight: bold;">Jugar</a></li>
-                                            <li class="nav-item"><a class="nav-link" aria-current="page" href="/Ranking" style="font-weight: bold;">Ranking</a></li>
+                                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Ranking" style="font-weight: bold;">Ranking</a></li>
+                                            <li class="nav-item"><a class="nav-link" aria-current="page" href="/InsertarPreguntas" style="font-weight: bold;">Insertar Preguntas</a></li>
                                             <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Contacto" style="font-weight: bold;">Contacto</a></li>
                                             <li class="nav-item"><a class="nav-link" aria-current="page" href="/CerrarSesion" style="font-weight: bold;">Cerrar Sesión</a></li>
                                         </ul>
@@ -180,6 +191,7 @@
             <div class="row w-100 m-0">
                 <div class="col-12 p-0">
                     <img src="/IMG/personajes3.jpg" alt="" width="100%">
+                    
                 </div>
             </div>
         </div>

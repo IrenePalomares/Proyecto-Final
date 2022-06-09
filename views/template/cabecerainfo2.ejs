@@ -102,13 +102,14 @@
             <% } else if (nombre!=='Admin') { %>
                 <div class="row w-100 m-0 pt-2 pb-2 fblanco cabecera">
                     <div class="col-12 d-none d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none flex-row justify-content-evenly align-items-center p-0">
-                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
+                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                         <button id="inicio" class="btn fblanco negro" style="font-weight: bold;">Inicio</button>
                         <button id="jugar" class="btn fblanco negro" style="font-weight: bold;">Jugar</button>
                         <button id="ranking" class="btn fblanco negro" style="font-weight: bold;">Ranking</button>
                         <button id="contacto" class="btn fblanco negro" style="font-weight: bold;">Contacto</button>
                         <a id="cerrar" href='/CerrarSesion' class="btn fblanco negro" style="font-weight: bold;">Cerrar Sesión</a>
-                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
+                        <button id="nombre" class="btn fblanco negro d-flex flex-row align-items-center" style="font-weight: bold;"><i class="bi bi-person-circle"></i>&nbsp<%= nombre %></button>
+                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                     </div>
                     <div class="col-12 d-xxl-none d-xl-none d-lg-none d-flex flex-row justify-content-around align-items-center p-0">
                         <div class="row w-100 m-0">
@@ -116,6 +117,9 @@
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
                                     <a class="navbar-brand" href="/"><img src="../IMG/logo.png" alt="" style="width: 40px; height: 40px;"></a>
+                                    <div id="nombre">
+                                        <i class="bi bi-person-circle"></i>&nbsp<%= nombre %>
+                                    </div>
                                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="toggler-icon top-bar"></span>
@@ -140,13 +144,14 @@
             <% } else if (nombre==='Admin') { %>
                 <div class="row w-100 m-0 pt-2 pb-2 fblanco cabecera">
                     <div class="col-12 d-none d-xxl-flex d-xl-flex d-lg-flex d-md-none d-sm-none flex-row justify-content-evenly align-items-center p-0">
-                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
+                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                         <button id="inicio" class="btn fblanco negro" style="font-weight: bold;">Inicio</button>
                         <button id="jugar" class="btn fblanco negro" style="font-weight: bold;">Jugar</button>
                         <button id="ranking" class="btn fblanco negro" style="font-weight: bold;">Ranking</button>
                         <button id="contacto" class="btn fblanco negro" style="font-weight: bold;">Contacto</button>
                         <a id="cerrar" href='/CerrarSesion' class="btn fblanco negro" style="font-weight: bold;">Cerrar Sesión</a>
-                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 80px; height: 80px;"></a>
+                        <button id="nombre" class="btn fblanco negro d-flex flex-row align-items-center" style="font-weight: bold;"><i class="bi bi-robot"></i>&nbsp<%= nombre %></button>
+                        <a href="/"><img src="../IMG/logo.png" alt="" style="width: 50px; height: 50px;"></a>
                     </div>
                     <div class="col-12 d-xxl-none d-xl-none d-lg-none d-flex flex-row justify-content-around align-items-center p-0">
                         <div class="row w-100 m-0">
@@ -154,6 +159,9 @@
                                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                                     <div class="container-fluid">
                                     <a class="navbar-brand" href="/"><img src="../IMG/logo.png" alt="" style="width: 40px; height: 40px;"></a>
+                                    <div id="nombre">
+                                        <i class="bi bi-robot"></i>&nbsp<%= nombre %>
+                                    </div>
                                     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="toggler-icon top-bar"></span>
