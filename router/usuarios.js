@@ -26,7 +26,7 @@ router.post('/', [
     body('correo', 'Introduce un correo válido')
         .exists()
         .isEmail(),
-    body('contrasena', 'Introduce una contraseña segura')
+    body('contrasena', 'La contraseña debe contener: mínimo 8 caracteres, una letra minúscula, una letra mayúscula, un número y un carácter especial')
         .exists()
         .isStrongPassword()
 ], async(req, res) => {
@@ -67,9 +67,9 @@ router.post('/', [
             }
             request (options, (error, response, body) => {
                 if(error) {
-                res.json({error}) // error :(
+                res.json({error}) 
                 } else {
-                    res.status(200); //successful :)
+                    res.status(200);
                 }
             })
             try {

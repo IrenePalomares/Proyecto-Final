@@ -16,10 +16,6 @@ router.get('/', (req, res) => {
     res.render("index", {nombre: session.nombre});
 })
 
-// router.get('/Contacto',(req, res) => {
-//     res.render("contacto", {nombre: session.nombre});
-// })
-
 router.get('/PoisonDevils',(req, res) => {
     res.render("poisonDevils", {nombre: session.nombre});
 })
